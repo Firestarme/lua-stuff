@@ -3,15 +3,13 @@ local rside = "south"
 
 com = require("component")
 col = require("colors")
-s = require("side")
+s = require("sides")
 se = require("serialization")
 ev = require("event")
 
 local mo = com.modem
 local rs = com.redstone
 local tm = com.ticketmachine
-
-local queue = {}
 
 function deploy(des)
 
@@ -31,44 +29,27 @@ function deploy(des)
  
 end
 
-function getNextOrder(t)
 
-  local v = t[1]
-  table.remove(t,1)
-  return v
+function receiveOrder()
+
+  local ev,la,ra,p,d,ref,msg = os.pullEvent("modem_message")
+  
+  mo.send(ra,51,ref,"r")
+  
+  return ra,ref,msg
   
 end
-
-function addOrder(t,v)
-
-  t[#t+1] = v
-  return v	
-  
-end
-
-function receiveOrder(la,ra,p,d,msg)
-
-  local o = se.unserialize(msg)
-  o.addr = ra
-  addOrder(queue,se.unserialize(msg))
- 
-  mo.send(ra,51,o.ref,"r")
-
-end
-
-
-ev.listen("modem",receiveOrder)
 
 while true do 
   
   if #queue > 0 then
   
-    local o = getNextOrder(queue)
-	mo.send(o.a,51,o.ref,"p")
+    local ra,ref,o = receiveOrder()
+	mo.send(ra,51,ref,"p")
 	
-	deploy(o.des)
+	deploy(o)
 	
-	mo.send(o.a,51,o.ref,"p")
+	mo.send(ra,51,ref,"p")
 	
   end
 

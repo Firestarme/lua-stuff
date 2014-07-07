@@ -42,16 +42,12 @@ end
 
 while true do 
   
-  if #queue > 0 then
-  
-    local ra,ref,o = receiveOrder()
-	mo.send(ra,51,ref,"p")
+  local ra,ref,o = receiveOrder()
+  mo.send(ra,51,ref,"p")
 	
-	deploy(o)
+  deploy(o)
 	
-	mo.send(ra,51,ref,"p")
-	
-  end
+  mo.send(ra,51,ref,"p")
 
 end
 

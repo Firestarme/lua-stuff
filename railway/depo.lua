@@ -46,7 +46,7 @@ while true do
   
   local ra,ref,o = receiveOrder()
   
-  print("order received :"..ref.." - "..o")
+  print("order received :"..ref.." - "..o)
   mo.send(ra,51,ref,"p")
 
   deploy(o)

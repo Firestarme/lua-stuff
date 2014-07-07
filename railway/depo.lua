@@ -2,7 +2,7 @@ local rside = "south"
 
 
 com = require("component")
-col = require("colour")
+col = require("colors")
 s = require("side")
 se = require("serialization")
 ev = require("event")

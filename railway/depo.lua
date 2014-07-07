@@ -32,7 +32,7 @@ end
 
 function receiveOrder()
 
-  local ev,la,ra,p,d,ref,msg = os.pullEvent("modem_message")
+  local ev,la,ra,p,d,ref,msg = ev.pullEvent("modem_message")
   
   mo.send(ra,51,ref,"r")
   

@@ -2,8 +2,8 @@ local rside = "south"
 
 
 com = require("component")
-col = require("colors")
-s = require("sides")
+c = require("colors")
+si = require("sides")
 se = require("serialization")
 ev = require("event")
 
@@ -11,21 +11,42 @@ local mo = com.modem
 local rs = com.redstone
 local tm = com.ticketmachine
 
+local s = si[rside]
+
+function pulse(s,c,d)
+
+	rs.setBundledOutput(s,c,15)
+	os.sleep(d)
+	rs.setBundledOutput(s,c,0)
+
+end
+
+function wait(s,c,v,d)
+
+  while rs.getBundledInput(s,c) ~= v do
+
+    os.sleep(d)
+  
+  end
+
+end
+
+function deployLoco()
+
+  pulse(s,c.lightblue,2)
+  wait(s,c.yellow,15,5)
+  pulse(s,c.lime,2)
+
+end
+
+
 function deploy(des)
 
   tm.createTicket(des)
-  rs.setBundledOutput(s[rside],col.white,15)
   
-  while not rs.getBundledInput(s[rside],col.magenta,15) do
-
-    os.sleep(2)
-  
-  end
-  
-  rs.setBundledOutput(s[rside],col.orange,15)
-  os.sleep(2)
-  rs.setBundledOutput(s[rside],col.white,0)
-  rs.setBundledOutput(s[rside],col.orange,15)
+  pulse(s,c.white,2)
+  wait(s,c.purple,15,5)
+  pulse(s,c.lime,1)
  
 end
 
@@ -47,12 +68,17 @@ while true do
   local ra,ref,o = receiveOrder()
   
   print("order received :"..ref.." - "..o)
-  mo.send(ra,51,ref,"p")
-
+  mo.send(ra,51,ref,"r")
+  
+  deployLoco()
+  
+  print("loco deployed :"..ref)
+  mo.send(ra,51,ref,"l")
+  
   deploy(o)
 	
-  print("order deployed")
-  mo.send(ra,51,ref,"p")
+  print("order deployed :"..ref)
+  mo.send(ra,51,ref,"d")
 
 end
 

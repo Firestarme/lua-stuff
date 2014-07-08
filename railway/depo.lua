@@ -35,7 +35,7 @@ function deployLoco()
 
   pulse(s,c.lightblue,2)
   wait(s,c.yellow,15,5)
-  pulse(s,c.lime,2)
+  pulse(s,c.orange,2)
 
 end
 

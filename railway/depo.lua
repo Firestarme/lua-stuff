@@ -45,8 +45,8 @@ function deploy(des)
   tm.createTicket(des)
   
   pulse(s,c.white,2)
-  wait(s,c.purple,15,5)
-  pulse(s,c.lime,1)
+  wait(s,c.magenta,15,5)
+  pulse(s,c.orange,2)
  
 end
 

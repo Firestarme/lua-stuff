@@ -75,9 +75,9 @@ end
 
 function loadDest()
 
-  local s = fs.size()
+  local s = fs.size("dest")
   local h = fs.open("dest")
-  local str = h:read(s,"r")
+  local str = h:read(s)
   
   h:close()
   

@@ -50,9 +50,9 @@ function s1(dest)
   
     elseif w-5 < x and x < w then
   
-      op = +1
+      op = 1
   
-    elseif bx-bl < x and x < bx+bl
+    elseif bx-bl < x and x < bx+bl then
   
       op = 0
   
@@ -77,7 +77,7 @@ function loadDest()
 
   local s = fs.size()
   local h = fs.open("dest")
-  local str = h:read(s)
+  local str = h:read(s,"r")
   
   h:close()
   

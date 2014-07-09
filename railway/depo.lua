@@ -50,10 +50,26 @@ function deploy(des)
  
 end
 
+function receive(p)
+
+ if not mo.isOpen(p) then mo.open(p) end
+
+  while p ~= po do
+
+    local ev,la,ra,po,d,msg,msg2 = ev.pull("modem_message")
+	
+	if po == 5 then mo.send(ra,6,"ping") end
+	
+  end
+  
+  return ra,msg,msg2
+
+end
+
 
 function receiveOrder()
 
-  local ev,la,ra,p,d,ref,msg = ev.pull("modem_message")
+  local ra,ref,msg = receive(50)
   
   mo.send(ra,51,ref,"r")
   

@@ -73,10 +73,10 @@ function s2()
 
 end
 
-function loadDest()
+function loadDest(path)
 
-  local s = fs.size("dest")
-  local h = fs.open("dest")
+  local s = fs.size(path)
+  local h = fs.open(path)
   local str = h:read(s)
   
   h:close()
@@ -119,7 +119,7 @@ function order(sa,des)
 
 end
 
-local d = loadDest()
+local d = loadDest("main/dest")
 local di = 1
 
 local sa = ping("depo")

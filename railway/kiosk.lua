@@ -114,6 +114,8 @@ function receive(p)
 	
   end
   
+  nilC(ra,"R-Adress")
+  
   return ra,msg
 
 end
@@ -122,9 +124,11 @@ function ping(dev)
 
 
   mo.broadcast(5,dev)
-  local ra = receive(6)
+  local ra,msg = receive(6)
   
   print("Ping Sucessful")
+  
+   nilC(ra,"P-Adress")
   
   return ra
 

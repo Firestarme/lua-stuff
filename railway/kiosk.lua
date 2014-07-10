@@ -71,10 +71,10 @@ function s1(dest)
       op = "sel"
   
     end
-	
-	error("X: "..x,"Y: "..y)
   
   end
+  
+  error("X: "..x,"Y: "..y)
   
   return p,op
     

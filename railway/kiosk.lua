@@ -56,17 +56,17 @@ function s1(dest)
   
   local e,addr,x,y,s,p = ev.pull("touch")
   
-  if y1-1 =< y and y =< y1+1 then
+  if y1-1 <= y and y <= y1+1 then
    
-    if 1 =< x and x =< 6 then
+    if 1 <= x and x <= 6 then
   
       op = -1
   
-    elseif w-4 =< x and x =< w-1 then
+    elseif w-4 <= x and x <= w-1 then
   
       op = 1
   
-    elseif bx =< x and x =< bx+l then
+    elseif bx <= x and x <= bx+l then
   
       op = "sel"
   

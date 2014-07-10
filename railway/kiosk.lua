@@ -13,7 +13,7 @@ assert(var ~= nil,desc.." is nil")
 
 end
 
-function clear()
+function clear(w,h)
 
   gpu.fill(0,0,w+1,h+1," ")
 
@@ -39,18 +39,18 @@ end
 
 function s1(dest)
 
+  local w = 25 
+  local h = 8
+  gpu.setResolution(w,h)
+  
   local y1 = h/2
   local l = string.len(dest)+4
   local bx = (w-l)/2
   local op = 0
   
-  local w = 25 
-  local h = 8
-  gpu.setResolution(w,h)
-  
   nilC(dest,"dest")
   
-  clear()
+  clear(w,h)
   gpu.set((w/2)-25/2,1,"Please Select Destination")
   tbox(1,y1,"◄")
   tbox(w-4,y1,"►")
@@ -82,10 +82,11 @@ end
 
 function s2(ref)
 
-  clear()
   local w = 50
   local h = 16
   gpu.setResolution(w,h)
+  
+  clear(w,h)
   
   
   gpu.set(w/2-13,h/2-1,"Your Order Has Been Placed")

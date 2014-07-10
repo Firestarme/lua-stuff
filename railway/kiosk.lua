@@ -74,7 +74,7 @@ function s1(dest)
   
   end
   
-  error("X: "..x,"Y: "..y)
+  error("X: "..x.." Y: "..y)
   
   return p,op
     

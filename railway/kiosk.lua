@@ -42,8 +42,8 @@ end
 function s1(dest)
 
   local y1 = h/2
-  local bl = (string.len(dest)+4)/2
-  local bx = w/2 - bl
+  local l = string.len(dest)+4
+  local bx = (w-l)/2
   local op = 0
   
   nilC(dest,"dest")
@@ -56,17 +56,17 @@ function s1(dest)
   
   local e,addr,x,y,s,p = ev.pull("touch")
   
-  if y1+1 < y and y < y1-1 then
+  if y1-1 < y and y < y1+1 then
    
-    if 0 < x and x < 5 then
+    if 1 < x and x < 6 then
   
       op = -1
   
-    elseif w-5 < x and x < w then
+    elseif w-4 < x and x < w-1 then
   
       op = 1
   
-    elseif bx+bl < x and x < bx-bl then
+    elseif bx < x and x < bx+l then
   
       op = "sel"
   

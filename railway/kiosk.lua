@@ -24,7 +24,7 @@ function tbox(x,y,txt)
 
   local len
   
-  if txt == "◄" then len = 3
+  if txt == "◄" or "►" then len = 3
   else len = string.len(txt)+2 end
 
   gpu.set(x,y-1,"╔"..string.rep("═",len).."╗")
@@ -38,7 +38,7 @@ function s1(dest)
   local y1 = h/2
   local bl = (string.len(dest)+4)/2
   local bx = w/2 - bl
-  local op
+  local op = 0
   
   assert(dest ~= nil,"no Dest")
   
@@ -64,10 +64,6 @@ function s1(dest)
   
       op = true
   
-    else
-	
-	  op = 0
-		
 	end
   
   end

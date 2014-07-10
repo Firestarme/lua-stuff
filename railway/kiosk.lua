@@ -1,6 +1,7 @@
 local com = require("component")
 local ev = require("event")
 local fs = require("filesystem")
+local ser = require("serialization")
 
 local gpu = com.gpu
 local mo = com.modem
@@ -81,6 +82,8 @@ function loadDest(path)
   
   h:close()
   
+  print("loaded: "..str)
+  
   return str
 
 end
@@ -130,7 +133,8 @@ local di = 1
 local sa = ping("depo")
 
 while true do
-
+  
+  print("selected dest = "..d[di])
   p,op = s1(d[di])
   
   if op == 0 then

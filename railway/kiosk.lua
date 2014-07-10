@@ -148,6 +148,8 @@ function order(sa,des)
   mo.send(sa,50,ref,des)
   
   tm.createTicket(des)
+  
+  return ref
 
 end
 
@@ -159,12 +161,11 @@ local sa = ping("depo")
 while true do
   
   local dest = d[di]
-  print("selected dest = "..dest)
   p,op = s1(dest)
   
   if op == "sel" then
     
-    order(sa,dest)
+    local ref = order(sa,dest)
     op = 0
 	s2(ref)
   

@@ -7,8 +7,6 @@ local gpu = com.gpu
 local mo = com.modem
 local tm = com.ticketmachine
 
-local w,h = gpu.getResolution()
-
 function nilC(var,desc)
 
 assert(var ~= nil,desc.." is nil")
@@ -46,6 +44,9 @@ function s1(dest)
   local bx = (w-l)/2
   local op = 0
   
+  local w = 25,h = 8
+  gpu.setResolution(w,h)
+  
   nilC(dest,"dest")
   
   clear()
@@ -81,6 +82,10 @@ end
 function s2(ref)
 
   clear()
+  local w = 50, h = 16
+  gpu.setResolution(w,h)
+  
+  
   gpu.set(w/2-13,h/2-1,"Your Order Has Been Placed")
   gpu.set(w/2-37/2,h/2,"Track your order on the order screens")
   local str = "your order Refrence is: "..ref

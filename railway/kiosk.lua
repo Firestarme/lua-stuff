@@ -24,7 +24,7 @@ function tbox(x,y,txt)
 
   local len
   
-  if txt == "◄" then len = 1
+  if txt == "◄" then len = 3
   else len = string.len(txt)+2 end
 
   gpu.set(x,y-1,"╔"..string.rep("═",len).."╗")
@@ -39,6 +39,8 @@ function s1(dest)
   local bl = (string.len(dest)+4)/2
   local bx = w/2 - bl
   local op
+  
+  assert(dest ~= nil,"no Dest")
   
   clear()
   gpu.set((w/2)-25/2,1,"Please Select Destination")

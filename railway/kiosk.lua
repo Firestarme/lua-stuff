@@ -92,6 +92,7 @@ function receive(p)
   while p ~= po do
 
     local ev,la,ra,po,d,msg = ev.pull("modem_message")
+	print("msg Received on port"..po)
 	
   end
   
@@ -104,6 +105,8 @@ function ping(dev)
 
   mo.broadcast(5,dev)
   local ra = receive(6)
+  
+  print("Ping Sucessful")
   
   return ra
 

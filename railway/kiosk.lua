@@ -17,7 +17,7 @@ end
 
 function clear()
 
-  gpu.fill(1,1,w,h," ")
+  gpu.fill(0,0,w+1,h+1," ")
 
 end
 

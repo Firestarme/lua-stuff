@@ -68,7 +68,7 @@ function s1(dest)
   
     elseif bx-bl < x and x < bx+bl then
   
-      op = true
+      op = "sel"
   
     end
   
@@ -78,11 +78,13 @@ function s1(dest)
     
 end
 
-function s2()
+function s2(ref)
 
   clear()
   gpu.set(w/2-13,h/2+1,"Your Order Has Been Placed")
-  gpu.set(w/2-37/2,h/2-1,"Track your order on the order screens")
+  gpu.set(w/2-37/2,h/2,"Track your order on the order screens")
+  local str = "your order Refrence is: "..ref
+  gpu.set(w/2-string.len(str)/2,h/2-1,str)
   os.sleep(10)
 
 end
@@ -160,10 +162,11 @@ while true do
   print("selected dest = "..dest)
   p,op = s1(dest)
   
-  if op == true then
+  if op == "sel" then
     
     order(sa,dest)
     op = 0
+	s2(ref)
   
   end
   

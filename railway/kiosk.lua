@@ -17,7 +17,7 @@ end
 
 function clear()
 
-  gpu.fill(0,0,w,h," ")
+  gpu.fill(1,1,w,h," ")
 
 end
 
@@ -167,7 +167,6 @@ while true do
     local r = order(sa,dest)
     op = 0
 	s2(r)
-	error(sa)
   
   end
   

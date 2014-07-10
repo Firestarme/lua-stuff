@@ -89,10 +89,12 @@ function receive(p)
 
  if not mo.isOpen(p) then mo.open(p) end
 
-  while p ~= po do
+  while true do
 
     local ev,la,ra,po,d,msg = ev.pull("modem_message")
-	print("msg Received on port"..po)
+	print("msg Received on port "..po)
+	
+	if po == p then break end
 	
   end
   

@@ -93,12 +93,13 @@ function s2(ref)
   gpu.set(w/2-37/2,h/2,"Track your order on the order screens")
   local str = "your order Refrence is: "..ref
   gpu.set(w/2-string.len(str)/2,h/2+1,str)
-  os.sleep(20)
   gpu.set(w/2-12,h/2+3,"Collect Your Ticket Below")
   gpu.set(w/2-1,h/2+5,[[||]])
   gpu.set(w/2-3,h/2+6,[[\-  -/]])
   gpu.set(w/2-2,h/2+7,[[\  /]])
   gpu.set(w/2-1,h/2+8,[[\/]])
+  
+  os.sleep(20)
 
 end
 

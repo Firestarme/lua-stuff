@@ -131,7 +131,7 @@ local sa = ping("depo")
 
 while true do
 
-  p,op = s1()
+  p,op = s1(d[di])
   
   if op == 0 then
     

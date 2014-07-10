@@ -13,6 +13,12 @@ local tm = com.ticketmachine
 
 local s = si[rside]
 
+function nulC(v,d)
+
+assert(v ~= nil,d.." is nil")
+
+end
+
 function pulse(s,c,d)
 
 	rs.setBundledOutput(s,c,15)
@@ -72,6 +78,9 @@ end
 function receiveOrder()
 
   local ra,ref,msg = receive(50)
+  
+  nulC(ref,"ref")
+  nulC(msg,"msg")
   
   mo.send(ra,51,ref,"r")
   

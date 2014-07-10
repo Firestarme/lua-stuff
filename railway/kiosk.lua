@@ -24,7 +24,7 @@ function tbox(x,y,txt)
 
   local len
   
-  if txt == "◄" or "►" then len = 3
+  if txt == "◄" or txt == "►" then len = 3
   else len = string.len(txt)+2 end
 
   gpu.set(x,y-1,"╔"..string.rep("═",len).."╗")
@@ -141,12 +141,13 @@ local sa = ping("depo")
 
 while true do
   
-  print("selected dest = "..d[di])
-  p,op = s1(d[di])
+  local dest = d[di]
+  print("selected dest = "..dest)
+  p,op = s1(dest)
   
-  if op then
+  if op == true then
     
-	order()
+	order(sa,dest)
 	op = 0
   
   end

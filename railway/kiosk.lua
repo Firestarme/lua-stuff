@@ -127,7 +127,7 @@ function order(sa,des)
 
 end
 
-local d = ser.serialize(loadDest("main/dest"))
+local d = ser.unserialize(loadDest("main/dest"))
 local di = 1
 
 local sa = ping("depo")

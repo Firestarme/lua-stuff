@@ -51,7 +51,7 @@ function s1(dest)
   nilC(dest,"dest")
   
   clear(w,h)
-  gpu.set((w/2)-24/2,1,"Please Select Destination")
+  gpu.set((w/2)-11,1,"Please Select Destination")
   tbox(1,y1,"◄")
   tbox(w-4,y1,"►")
   tbox(bx,y1,dest)

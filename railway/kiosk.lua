@@ -144,7 +144,6 @@ function order(sa,des)
   nilC(des,"Destination")
   
   local ref = math.random(111111,999999)
-  
   mo.send(sa,50,ref,des)
   
   tm.createTicket(des)
@@ -165,9 +164,9 @@ while true do
   
   if op == "sel" then
     
-    local ref = order(sa,dest)
+    local r = order(sa,dest)
     op = 0
-	s2(ref)
+	s2(r)
 	error(sa)
   
   end

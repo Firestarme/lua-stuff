@@ -1,3 +1,5 @@
+local here = "spawn"
+
 local com = require("component")
 local ev = require("event")
 local fs = require("filesystem")
@@ -158,7 +160,7 @@ function order(sa,des)
   nilC(des,"Destination")
   
   local ref = math.random(111111,999999)
-  mo.send(sa,50,ref,des)
+  mo.send(sa,50,ref,here)
   
   tm.createTicket(des)
   

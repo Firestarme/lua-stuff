@@ -32,13 +32,13 @@ function s1(dest)
 
   local y1 = h/2
   local bl = (string.len(dest)+4)/2
-  local bx = w/2 - blim
+  local bx = w/2 - bl
   local op
   
   clear()
   gpu.set((w/2)-25/2,1,"Please Select Destination")
-  tbox(0,y1,"◄")
-  tbox(w-5,y1,"►")
+  tbox(1,y1,"◄")
+  tbox(w-6,y1,"►")
   tbox(bx,y1,dest)
   
   local e,addr,x,y,s,p = ev.pull("touch")
@@ -55,9 +55,13 @@ function s1(dest)
   
     elseif bx-bl < x and x < bx+bl then
   
-      op = 0
+      op = true
   
-    end
+    else
+	
+	  op = 0
+		
+	end
   
   end
   
@@ -137,9 +141,10 @@ while true do
   print("selected dest = "..d[di])
   p,op = s1(d[di])
   
-  if op == 0 then
+  if op then
     
 	order()
+	op = 0
   
   end
   

@@ -9,6 +9,12 @@ local tm = com.ticketmachine
 
 local w,h = gpu.getResolution()
 
+function nilC(var,desc)
+
+assert(var ~= nil,desc.." is nil")
+
+end
+
 function clear()
 
   gpu.fill(0,0,w,h," ")
@@ -40,7 +46,7 @@ function s1(dest)
   local bx = w/2 - bl
   local op = 0
   
-  assert(dest ~= nil,"no Dest")
+  nilC(dest,"dest")
   
   clear()
   gpu.set((w/2)-25/2,1,"Please Select Destination")
@@ -125,7 +131,10 @@ function ping(dev)
 end
 
 function order(sa,des)
-
+  
+  nilC(sa,"Address")
+  nilC(des,"Destination")
+  
   local ref = math.random(111111,999999)
   
   mo.send(sa,50,ref,des)

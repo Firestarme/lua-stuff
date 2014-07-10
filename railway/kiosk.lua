@@ -22,9 +22,14 @@ function tbox(x,y,txt)
 ╚══════╝
 ]]--
 
-  gpu.set(x,y-1,"╔"..string.rep("═",string.len(txt)+2).."╗")
+  local len
+  
+  if txt == "◄" then len = 1
+  else len = string.len(txt)+2
+
+  gpu.set(x,y-1,"╔"..string.rep("═",len).."╗")
   gpu.set(x,y,"║ "..txt.." ║")
-  gpu.set(x,y+1,"╚"..string.rep("═",string.len(txt)+2).."╝")
+  gpu.set(x,y+1,"╚"..string.rep("═",len).."╝")
 
 end
 

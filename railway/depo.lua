@@ -61,11 +61,11 @@ function receive(p)
   if not mo.isOpen(p) then mo.open(p) end
   if not mo.isOpen(5) then mo.open(5) end
 
-  local ev,la,ra,po,d,msg,msg2
+  local e,la,ra,po,d,msg,msg2
   
   while true do
 
-    ev,la,ra,po,d,msg,msg2 = ev.pull("modem_message")
+    e,la,ra,po,d,msg,msg2 = ev.pull("modem_message")
     
     if po == 5 then mo.send(ra,6,"ping") print("ping served") end
     if po == p then break end

@@ -51,7 +51,7 @@ function s1(dest)
   clear()
   gpu.set((w/2)-25/2,1,"Please Select Destination")
   tbox(1,y1,"◄")
-  tbox(w-6,y1,"►")
+  tbox(w-4,y1,"►")
   tbox(bx,y1,dest)
   
   local e,addr,x,y,s,p = ev.pull("touch")
@@ -81,11 +81,11 @@ end
 function s2(ref)
 
   clear()
-  gpu.set(w/2-13,h/2+1,"Your Order Has Been Placed")
+  gpu.set(w/2-13,h/2-1,"Your Order Has Been Placed")
   gpu.set(w/2-37/2,h/2,"Track your order on the order screens")
   local str = "your order Refrence is: "..ref
-  gpu.set(w/2-string.len(str)/2,h/2-1,str)
-  os.sleep(10)
+  gpu.set(w/2-string.len(str)/2,h/2+1,str)
+  os.sleep(20)
 
 end
 
@@ -168,6 +168,7 @@ while true do
     local ref = order(sa,dest)
     op = 0
 	s2(ref)
+	error(sa)
   
   end
   

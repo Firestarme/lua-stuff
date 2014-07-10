@@ -25,7 +25,7 @@ function tbox(x,y,txt)
   local len
   
   if txt == "◄" then len = 1
-  else len = string.len(txt)+2
+  else len = string.len(txt)+2 end
 
   gpu.set(x,y-1,"╔"..string.rep("═",len).."╗")
   gpu.set(x,y,"║ "..txt.." ║")

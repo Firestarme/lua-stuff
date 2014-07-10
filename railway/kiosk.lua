@@ -71,6 +71,8 @@ function s1(dest)
       op = "sel"
   
     end
+	
+	error("X: "..x,"Y: "..y)
   
   end
   

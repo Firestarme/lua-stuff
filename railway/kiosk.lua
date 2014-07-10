@@ -44,7 +44,8 @@ function s1(dest)
   local bx = (w-l)/2
   local op = 0
   
-  local w = 25,h = 8
+  local w = 25 
+  local h = 8
   gpu.setResolution(w,h)
   
   nilC(dest,"dest")
@@ -82,7 +83,8 @@ end
 function s2(ref)
 
   clear()
-  local w = 50, h = 16
+  local w = 50
+  local h = 16
   gpu.setResolution(w,h)
   
   

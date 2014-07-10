@@ -70,7 +70,7 @@ function s1(dest)
   
       op = true
   
-	end
+    end
   
   end
   
@@ -103,18 +103,20 @@ end
 
 function receive(p)
 
- if not mo.isOpen(p) then mo.open(p) end
+  if not mo.isOpen(p) then mo.open(p) end
+ 
+  local e,la,ra,po,d,msg
 
   while true do
 
-    local ev,la,ra,po,d,msg = ev.pull("modem_message")
-	print("msg Received on port "..po)
-	
-	if po == p then break end
-	
+    e,la,ra,po,d,msg = ev.pull("modem_message")
+    print("msg Received on port "..po)
+  
+    if po == p then break end
+  
   end
   
-  nilC(ra,"R-Adress")
+  nilC(ra,"R-Address")
   
   return ra,msg
 
@@ -160,8 +162,8 @@ while true do
   
   if op == true then
     
-	order(sa,dest)
-	op = 0
+    order(sa,dest)
+    op = 0
   
   end
   

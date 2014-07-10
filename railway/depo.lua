@@ -58,7 +58,7 @@ function receive(p)
 
     local ev,la,ra,po,d,msg,msg2 = ev.pull("modem_message")
 	
-	if po == 5 then mo.send(ra,6,"ping") end
+	if po == 5 then mo.send(ra,6,"ping") print("ping served") end
 	
   end
   

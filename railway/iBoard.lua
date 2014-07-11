@@ -1,4 +1,4 @@
-local deb = true
+local deb = false
 
 local com = require("component")
 local ev = require("event")

@@ -138,35 +138,35 @@ end
 function proF.o(r,p)
 
   addRec(r,p)
-  setPro("Order Sent")
+  setPro(r,"Order Sent")
   Draw()
 
 end
 
 function proF.r(r,p)
 
-  setPro("Order Received")
+  setPro(r,"Order Received")
   Draw()
 
 end
 
 function proF.l(r,p)
 
-  setPro("Loco Deployed")
+  setPro(r,"Loco Deployed")
   Draw()
 
 end
 
 function proF.d(r,p)
 
-  setPro("Order Dispached")
+  setPro(r,"Order Dispached")
   Draw()
 
 end
 
 function proF.c(r,p)
 
-  setPro("Order Complete")
+  setPro(r,"Order Complete")
   Draw()
   
   delRec(r)

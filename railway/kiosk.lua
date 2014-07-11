@@ -141,7 +141,9 @@ function receive(p)
 end
 
 function ping(p,dev)
-
+  
+  print("Pinging "..dev.." on port "..p)
+  
   mo.broadcast(p,dev)
   local ra,msg = receive(p+1)
   

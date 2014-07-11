@@ -84,8 +84,6 @@ function receiveOrder()
   nulC(ref,"ref")
   nulC(msg,"msg")
   
-  mo.send(reta,51,ref,"r")
-  
   return reta,ref,msg
   
 end

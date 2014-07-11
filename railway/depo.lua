@@ -86,7 +86,7 @@ function receiveOrder()
   
   mo.send(reta,51,ref,"r")
   
-  return ra,ref,msg
+  return reta,ref,msg
   
 end
 

@@ -180,7 +180,7 @@ while true do
   
   if op == "sel" then
     
-    local r = order(sa,dest)
+    local r = order(sa,reta,dest)
     op = 0
 	s2(r)
   

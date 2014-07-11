@@ -128,7 +128,8 @@ end
 
 function setPro(r,s)
 
-  dprint("setting progress: "..s.." at index: "..refIx[r])
+  dprint("setting progress: "..s.." at ref: "..r)
+  dprint("index = "..refIx[r])
 
   pro[refIx[r]] = s
 

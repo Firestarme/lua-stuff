@@ -122,8 +122,8 @@ end
 
 function proF.o(r,p)
 
-  setPro("Order Sent")
   addRec(r,p)
+  setPro("Order Sent")
   Draw()
 
 end

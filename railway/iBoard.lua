@@ -1,3 +1,5 @@
+local deb = true
+
 local com = require("component")
 local ev = require("event")
 
@@ -14,6 +16,12 @@ local proF = {}
 local w = 64
 local h = 10
 gpu.setResolution(w,h)
+
+function dprint(s)
+
+  if deb then print(s) end
+
+end
 
 function receive(p)
 
@@ -70,12 +78,14 @@ end
 
 function Draw()
 
+  if not deb then
   clear()
   printCol(1,1,ref,6)
   printCL(7,1,10)
   printCol(8,1,ply,38)
   printCL(47,1,10)
   printCol(48,1,pro,16)
+  end
 
 end
 
@@ -98,6 +108,8 @@ function addRec(r,p)
   table.insert(ply,#ply+1,p)
   
   refIx[r] = rI
+  
+  dprint("adding record: "..refIx[r].." : "..ref[rI].." : "..ply[rI])
 
 end
 

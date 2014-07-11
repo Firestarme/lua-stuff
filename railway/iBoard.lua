@@ -157,6 +157,8 @@ function proF.c(r,p)
 
 end
 
+Draw()
+
 while true do 
 
   local r,s,p = receive(51)

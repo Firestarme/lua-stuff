@@ -61,30 +61,30 @@ function receive(p)
   if not mo.isOpen(p) then mo.open(p) end
   if not mo.isOpen(5) then mo.open(5) end
 
-  local e,la,ra,po,d,msg,msg2
+  local e,la,ra,po,d,msg,msg2,msg3
   
   while true do
 
-    e,la,ra,po,d,msg,msg2 = ev.pull("modem_message")
+    e,la,ra,po,d,msg,msg2,msg3 = ev.pull("modem_message")
     
     if po == 5 then mo.send(ra,6,"ping") print("ping served") end
     if po == p then break end
 	
   end
   
-  return ra,msg,msg2
+  return msg,msg2,msg3
 
 end
 
 
 function receiveOrder()
 
-  local ra,ref,msg = receive(50)
+  local reta,ref,msg = receive(50)
   
   nulC(ref,"ref")
   nulC(msg,"msg")
   
-  mo.send(ra,51,ref,"r")
+  mo.send(reta,51,ref,"r")
   
   return ra,ref,msg
   

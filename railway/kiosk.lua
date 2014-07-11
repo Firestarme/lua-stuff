@@ -140,11 +140,10 @@ function receive(p)
 
 end
 
-function ping(dev)
+function ping(p,dev)
 
-
-  mo.broadcast(5,dev)
-  local ra,msg = receive(6)
+  mo.broadcast(p,dev)
+  local ra,msg = receive(p+1)
   
   print("Ping Sucessful")
   
@@ -154,13 +153,13 @@ function ping(dev)
 
 end
 
-function order(sa,des)
+function order(sa,reta,des)
   
   nilC(sa,"Address")
   nilC(des,"Destination")
   
   local ref = math.random(111111,999999)
-  mo.send(sa,50,ref,here)
+  mo.send(sa,50,reta,ref,here)
   
   tm.createTicket(des)
   
@@ -171,7 +170,8 @@ end
 local d = ser.unserialize(loadDest("main/dest"))
 local di = 1
 
-local sa = ping("depo")
+local sa = ping(5,"depo")
+local reta = ping(7,"iBoard")
 
 while true do
   

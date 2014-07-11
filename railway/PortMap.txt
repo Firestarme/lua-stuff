@@ -1,0 +1,8 @@
+Port map
+
+5: Depo Ping
+6: Depo Ping return
+7: IBoard ping
+8: IBoard ping return
+50: Depo request
+51: Depo request return

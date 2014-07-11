@@ -162,6 +162,7 @@ function order(sa,reta,des)
   
   local ref = math.random(111111,999999)
   mo.send(sa,50,reta,ref,here)
+  mo.send(reta,51,ref,"o",p)
   
   tm.createTicket(des)
   

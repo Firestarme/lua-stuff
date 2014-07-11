@@ -33,9 +33,9 @@ function receive(p)
   while true do
 
     e,la,ra,po,d,msg,msg2,msg3 = ev.pull("modem_message")
-	print("msg Received on port "..po)
+	dprint("msg Received on port "..po)
     
-    if po == 7 then mo.send(ra,8,"ping") print("ping served") end
+    if po == 7 then mo.send(ra,8,"ping") dprint("ping served") end
     if po == p then break end
 	
   end

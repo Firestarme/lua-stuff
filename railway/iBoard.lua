@@ -9,7 +9,7 @@ local ref = {}
 local ply = {}
 local pro = {} 
 
-local proPr = {o = "Order Sent",r = "Order Received",l = "Loco Deployed",d = "Order Dispatched"}
+local proF = {}
 
 local w = 64
 local h = 10
@@ -20,18 +20,18 @@ function receive(p)
   if not mo.isOpen(p) then mo.open(p) end
   if not mo.isOpen(7) then mo.open(7) end
 
-  local e,la,ra,po,d,msg,msg2
+  local e,la,ra,po,d,msg,msg2,msg3
   
   while true do
 
-    e,la,ra,po,d,msg,msg2 = ev.pull("modem_message")
+    e,la,ra,po,d,msg,msg2,msg3 = ev.pull("modem_message")
     
     if po == 7 then mo.send(ra,8,"ping") print("ping served") end
     if po == p then break end
 	
   end
   
-  return ra,msg,msg2,msg3
+  return msg,msg2,msg3
 
 end
 
@@ -41,13 +41,13 @@ function clear()
 
 end
 
-function printCol(x,y,t)
+function printCol(x,y,t,cw)
 
   for k,v in pairs(t) do 
     
 	local ypos = y+k-1
 	
-    gpu.set(x,ypos,v)
+    gpu.set(x,ypos,string.sub(v,0,cw))
 	
 	if ypos > h then break end
   
@@ -66,6 +66,18 @@ function printCL(x,y,l)
   end
 
 end
+
+function Draw()
+
+  clear()
+  printCol(1,1,ref,6)
+  printCL(7,1,10)
+  printCol(8,1,ply,38)
+  printCL(47,1,10)
+  printCol(48,1,pro,16)
+
+end
+
 
 function upRefIx()
 
@@ -93,17 +105,62 @@ function delRec(r)
   i = refIx[r]
   table.remove(refIx,r)
   
-  table.remove(ref,1)
-  table.remove(ply,1)
-  table.remove(pro,1)
+  table.remove(ref,i)
+  table.remove(ply,i)
+  table.remove(pro,i)
   
   upRefIx()
 
 end
 
+function setPro(r,s)
+
+  pro[refIx[r]] = s
+
+end
+
+function proF.o(r,p)
+
+  setPro("Order Sent")
+  addRec(r,p)
+  Draw()
+
+end
+
+function proF.r(r,p)
+
+  setPro("Order Received")
+  Draw()
+
+end
+
+function proF.l(r,p)
+
+  setPro("Loco Deployed")
+  Draw()
+
+end
+
+function proF.d(r,p)
+
+  setPro("Order Dispached")
+  Draw()
+
+end
+
+function proF.c(r,p)
+
+  setPro("Order Complete")
+  Draw()
+  
+  delRec(r)
+
+end
+
 while true do 
 
-  receive
-
+  local r,s,p = receive(51)
+  
+  proF[s](r,p)
 
 end

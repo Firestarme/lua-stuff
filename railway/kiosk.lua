@@ -4,6 +4,7 @@ local com = require("component")
 local ev = require("event")
 local fs = require("filesystem")
 local ser = require("serialization")
+local uc = require("unicode")
 
 local gpu = com.gpu
 local mo = com.modem
@@ -28,10 +29,7 @@ function tbox(x,y,txt)
 ╚══════╝
 ]]--
 
-  local len
-  
-  if txt == "◄" or txt == "►" then len = 3
-  else len = string.len(txt)+2 end
+  local len = uc.len(txt)+2
 
   gpu.set(x,y-1,"╔"..string.rep("═",len).."╗")
   gpu.set(x,y,"║ "..txt.." ║")
@@ -46,7 +44,7 @@ function s1(dest)
   gpu.setResolution(w,h)
   
   local y1 = h/2
-  local l = string.len(dest)+4
+  local l = uc.len(dest)+4
   local bx = (w-l)/2
   local op = 0
   
